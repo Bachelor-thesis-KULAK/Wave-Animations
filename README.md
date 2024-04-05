@@ -16,8 +16,3 @@ A summary of the content:
   - (1) Alternative damped solving method
 
 ## My Video Demo
-
-<video width="320" height="240" controls>
-  <source src="part_1/numerical_lambda.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
