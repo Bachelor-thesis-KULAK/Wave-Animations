@@ -5,7 +5,7 @@ This repository contains the animations corresponding to the simulations created
 A summary of the content:
 
 	Part 1)
-		(1) Interpolation method: simulation of linear/quadratic/cubic (NOT ADDED YET)
+		(2) Interpolation method: simulation of linear/quadratic/cubic for different L
 		(3) Numercial: first timestep/lambda instability/sharp pulse instability 
 		(10) simulations -> (8) analytically solvable (basic) and (2) other conditions
   
