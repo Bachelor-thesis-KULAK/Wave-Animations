@@ -14,3 +14,8 @@ A summary of the content:
   - (1) All numerical schemes
   - (1) Damped wave equation, with non-damped analytical solution
   - (1) Alternative damped solving method
+
+<video width="320" height="240" controls="">
+  <source src="https://github.com/Bachelor-thesis-KULAK/Wave-Animations/raw/main/Part_1/numerical_lambda.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
