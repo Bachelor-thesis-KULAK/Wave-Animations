@@ -11,6 +11,6 @@ A summary of the content:
   
 	Part 2)
 		(5) Result of the wave from Chen's  examples
-		(1) All numerical schemes (NOT ADDED YET)
-		(1) Damped wave equation, with non-damped analytical solution (NOT ADDED YET)
-		(1) Alternative damped solving method (NOT ADDED YET)
+		(1) All numerical schemes
+		(1) Damped wave equation, with non-damped analytical solution
+		(1) Alternative damped solving method
