@@ -14,6 +14,19 @@
       width: 100%;
       height: auto;
     }
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: 0;
+      margin: 0;
+      gap: 0.5rem;
+    }
+    .video {
+      min-height: 6rem;
+    }
+    summary h2 {
+      display: inline;
+    }
   </style>
   <script>
     // Wait for the document to be fully loaded
@@ -86,10 +99,28 @@
         </ul>
       </li>
     </ul>
-        
-    <h2>My Video Demo</h2>
-    <!-- Set src to the raw URL, or set src_ to the relative URL -->
-    <video src_="Part_1/numerical_lambda.mp4"></video>
+
+    <h2>Part 1</h2>
+    <div class="videos">
+      <div class="video">
+        <video src_="Part_1/bad_initial_condition.mp4"></video>
+      </div>
+      <div class="video">
+        <video src_="Part_1/interpol_50_2024.04.05-17.20.45.mp4"></video>
+      </div>
+      <div class="video">
+        <video src_="Part_1/interpol_99_2024.04.05-17.26.16.mp4"></video>
+      </div>
+      <div class="video">
+        <video src_="Part_1/numerical_first_timestep.mp4"></video>
+      </div>
+      <div class="video">
+        <video src_="Part_1/numerical_lambda.mp4"></video>
+      </div>
+      <div class="video">
+        <video src_="Part_1/numerical_sharp_pulse.mp4"></video>
+      </div>
+    </div>
   </div>
 
   <!-- Necessary videojs script -->
