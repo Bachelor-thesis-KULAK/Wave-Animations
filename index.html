@@ -21,21 +21,20 @@
       margin: 0;
       gap: 0.5rem;
     }
-    .video {
+    .video-div {
       min-height: 6rem;
-    }
-    summary h2 {
-      display: inline;
     }
   </style>
   <script>
     // Wait for the document to be fully loaded
     document.addEventListener('DOMContentLoaded', function () {
-      // Get all video elements
-      var videoElements = document.querySelectorAll('video');
-      
-      // Iterate over each video element
-      videoElements.forEach(function (videoElement) {
+      // Get all divs with class 'video-div'
+      var videoDivs = document.querySelectorAll('.video-div');
+
+      // Loop over each video div
+      videoDivs.forEach(function (div) {
+        // Create a video element
+        var videoElement = document.createElement('video');
         // Set the class to "video-js" (for better style)
         videoElement.classList.add('video-js');
         // Set loop (automatically looping), preload to "auto" (to load the videos as fast as allowed by the browser), 
@@ -44,18 +43,14 @@
         videoElement.setAttribute('preload', 'auto');
         videoElement.setAttribute('controls', '');
         videoElement.setAttribute('type', 'video/mp4');
+        // Set src for the video element
+        videoElement.setAttribute('src', 'https://github.com/Bachelor-thesis-KULAK/Wave-Animations/raw/main/' + div.getAttribute('video_src')); // Set the source of the video
         // Automatically add not-supported message
         var defaultText = document.createTextNode('Your browser does not support the video tag.');
         videoElement.appendChild(defaultText);
-        // This code is so we can set src_ to the relative path
-        if (videoElement.hasAttribute('src_')) {
-          // If src_ attribute exists, set src
-          videoElement.src = 'https://github.com/Bachelor-thesis-KULAK/Wave-Animations/raw/main/' + videoElement.getAttribute('src_');
-          videoElement.removeAttribute('src_');
-        }
-      });
+        // Insert the video element inside the current div
+        div.appendChild(videoElement);
 
-      videoElements.forEach(function (videoElement) {
         // Initialise "video-js" for each video element tag
         // fluid: this makes sure the video element is not displayed as very small or large (otherwise videojs changes the width and height of the video element)
         // playbackrates: the video can be watched at 10x slower, 4x slower, 2x slower and 2x faster (we can choose other rates as well)
@@ -102,93 +97,41 @@
 
     <h2>Part 1</h2>
     <div class="videos">
-      <div class="video">
-        <video src_="Part_1/bad_initial_condition.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/interpol_50_2024.04.05-17.20.45.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/interpol_99_2024.04.05-17.26.16.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/numerical_first_timestep.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/numerical_lambda.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/numerical_sharp_pulse.mp4"></video>
-      </div>
+      <div class="video-div" video_src="Part_1/bad_initial_condition.mp4"></div>
+      <div class="video-div" video_src="Part_1/interpol_50_2024.04.05-17.20.45.mp4"></div>
+      <div class="video-div" video_src="Part_1/interpol_99_2024.04.05-17.26.16.mp4"></div>
+      <div class="video-div" video_src="Part_1/numerical_first_timestep.mp4"></div>
+      <div class="video-div" video_src="Part_1/numerical_lambda.mp4"></div>
+      <div class="video-div" video_src="Part_1/numerical_sharp_pulse.mp4"></div>
     </div>
     <h3>Simulations</h3>
     <div class="videos">
-      <div class="video">
-        <video src_="Part_1/simulations/basic_atansin.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/basic_atanwave packet.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/basic_expsin.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/basic_expwave packet.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/basic_linearsin.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/basic_linearwave packet.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/basic_sinhsin.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/basic_sinhwave packet.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/other_gauss.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_1/simulations/other_sin.mp4"></video>
-      </div>
+      <div class="video-div" video_src="Part_1/simulations/basic_atansin.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/basic_atanwave packet.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/basic_expsin.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/basic_expwave packet.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/basic_linearsin.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/basic_linearwave packet.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/basic_sinhsin.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/basic_sinhwave packet.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/other_gauss.mp4"></div>
+      <div class="video-div" video_src="Part_1/simulations/other_sin.mp4"></div>
     </div>
     <h2>Part 2</h2>
     <div class="videos">
-      <div class="video">
-        <video src_="Part_2/F_fixed_boundary.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/F_free_boundary.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/damped_all_schemes.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/damped_first_order_approx.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/numerical_schemes.mp4"></video>
-      </div>
+      <div class="video-div" video_src="Part_2/F_fixed_boundary.mp4"></div>
+      <div class="video-div" video_src="Part_2/F_free_boundary.mp4"></div>
+      <div class="video-div" video_src="Part_2/damped_all_schemes.mp4"></div>
+      <div class="video-div" video_src="Part_2/damped_first_order_approx.mp4"></div>
+      <div class="video-div" video_src="Part_2/numerical_schemes.mp4"></div>
     </div>
     <h3>Chen</h3>
     <div class="videos">
-      <div class="video">
-        <video src_="Part_2/Chen/chen_1_10.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/Chen/chen_1_50.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/Chen/chen_2_10.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/Chen/chen_2_200.mp4"></video>
-      </div>
-      <div class="video">
-        <video src_="Part_2/Chen/chen_2_50.mp4"></video>
-      </div>
+      <div class="video-div" video_src="Part_2/Chen/chen_1_10.mp4"></div>
+      <div class="video-div" video_src="Part_2/Chen/chen_1_50.mp4"></div>
+      <div class="video-div" video_src="Part_2/Chen/chen_2_10.mp4"></div>
+      <div class="video-div" video_src="Part_2/Chen/chen_2_200.mp4"></div>
+      <div class="video-div" video_src="Part_2/Chen/chen_2_50.mp4"></div>
     </div>
   </div>
 
