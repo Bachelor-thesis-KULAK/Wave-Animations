@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wave Animations</title>
   <link rel="canonical" href="https://bachelor-thesis-kulak.github.io/Wave-Animations/">
+  <!-- Use videojs for video formatting -->
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://bachelor-thesis-kulak.github.io/Wave-Animations/assets/css/style.css?v=d0a786cf6e19c4ddc40c16669595f8c16a93be29">
   <style>
     video {
@@ -13,6 +15,46 @@
       height: auto;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get all video elements
+      var videoElements = document.querySelectorAll('video');
+      
+      // Iterate over each video element
+      videoElements.forEach(function (videoElement) {
+        // Set the class to "video-js"
+        videoElement.classList.add('video-js');
+        videoElement.setAttribute('loop', '');
+        videoElement.setAttribute('preload', 'auto');
+        videoElement.setAttribute('controls', '');
+        videoElement.setAttribute('type', 'video/mp4');
+        var defaultText = document.createTextNode('Your browser does not support the video tag.');
+        videoElement.appendChild(defaultText);
+        
+        if (videoElement.hasAttribute('src_')) {
+          // If src_ attribute exists, set src
+          videoElement.src = 'https://github.com/Bachelor-thesis-KULAK/Wave-Animations/raw/main/' + videoElement.getAttribute('src_');
+          videoElement.removeAttribute('src_');
+        }
+      });
+
+      videoElements.forEach(function (videoElement) {
+        // Initialise "video-js"
+        videojs(videoElement, {
+          fluid: true,
+          playbackRates: [0.1, 0.25, 0.5, 1, 2],
+          inactivityTimeout: 10,
+          controlBar: {
+            volumePanel: {
+              inline: true,
+              vertical: true
+            }
+          }
+        });
+      });
+
+    });
+  </script>
 </head>
 <body>
   <div class="container-lg px-3 my-5 markdown-body">
@@ -41,10 +83,10 @@
         
     <h2>My Video Demo</h2>
     <!-- Copy the 'View raw' URL from the video -->
-    <video controls>
-      <source src="https://github.com/Bachelor-thesis-KULAK/Wave-Animations/raw/main/Part_1/numerical_lambda.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <video src_="Part_1/numerical_lambda.mp4"></video>
   </div>
+
+  <!-- Necessary videojs script -->
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 </body>
 </html>
