@@ -16,21 +16,25 @@
     }
   </style>
   <script>
+    // Wait for the document to be fully loaded
     document.addEventListener('DOMContentLoaded', function () {
       // Get all video elements
       var videoElements = document.querySelectorAll('video');
       
       // Iterate over each video element
       videoElements.forEach(function (videoElement) {
-        // Set the class to "video-js"
+        // Set the class to "video-js" (for better style)
         videoElement.classList.add('video-js');
+        // Set loop (automatically looping), preload to "auto" (to load the videos as fast as allowed by the browser), 
+        // controls (volume, playbutton, slider, ...) and set type of the video to "video/mp4" (then we don't have to type it manually for each tag)
         videoElement.setAttribute('loop', '');
         videoElement.setAttribute('preload', 'auto');
         videoElement.setAttribute('controls', '');
         videoElement.setAttribute('type', 'video/mp4');
+        // Automatically add not-supported message
         var defaultText = document.createTextNode('Your browser does not support the video tag.');
         videoElement.appendChild(defaultText);
-        
+        // This code is so we can set src_ to the relative path
         if (videoElement.hasAttribute('src_')) {
           // If src_ attribute exists, set src
           videoElement.src = 'https://github.com/Bachelor-thesis-KULAK/Wave-Animations/raw/main/' + videoElement.getAttribute('src_');
@@ -39,14 +43,18 @@
       });
 
       videoElements.forEach(function (videoElement) {
-        // Initialise "video-js"
+        // Initialise "video-js" for each video element tag
+        // fluid: this makes sure the video element is not displayed as very small or large (otherwise videojs changes the width and height of the video element)
+        // playbackrates: the video can be watched at 10x slower, 4x slower, 2x slower and 2x faster (we can choose other rates as well)
+        // inactivityTimeout: controlbar at the bottom disappears after 10 milliseconds (because it interferes with the video)
+        // volumePanel: not online (to not distract)
         videojs(videoElement, {
           fluid: true,
           playbackRates: [0.1, 0.25, 0.5, 1, 2],
           inactivityTimeout: 10,
           controlBar: {
             volumePanel: {
-              inline: true,
+              inline: false,
               vertical: true
             }
           }
