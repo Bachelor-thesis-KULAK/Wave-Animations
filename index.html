@@ -47,16 +47,14 @@
         // fluid: this makes sure the video element is not displayed as very small or large (otherwise videojs changes the width and height of the video element)
         // playbackrates: the video can be watched at 10x slower, 4x slower, 2x slower and 2x faster (we can choose other rates as well)
         // inactivityTimeout: controlbar at the bottom disappears after 200 milliseconds (because it interferes with the video)
-        // volumePanel: not inline (to not distract)
+        // controlBar: I have removed the volumePanel and the pictureInPictureToggle
         videojs(videoElement, {
           fluid: true,
           playbackRates: [0.1, 0.25, 0.5, 1, 2],
           inactivityTimeout: 200,
           controlBar: {
-            volumePanel: {
-              inline: false,
-              vertical: true
-            }
+            volumePanel: false,
+            pictureInPictureToggle: false
           }
         });
       });
