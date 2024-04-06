@@ -10,6 +10,7 @@ A summary of the content:
   - (10) simulations -> (8) analytically solvable (basic) and (2) other conditions
   
 - **Part 2**
+  - (2) Example map F for fixed and free boundary
   - (5) Result of the wave from Chen's examples
   - (1) All numerical schemes
   - (1) Damped wave equation, with non-damped analytical solution
