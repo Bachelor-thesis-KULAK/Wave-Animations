@@ -5,10 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wave Animations</title>
-  <link rel="canonical" href="https://bachelor-thesis-kulak.github.io/Wave-Animations/">
+  <link rel="canonical" href="/Wave-Animations/">
   <!-- Use videojs for video formatting -->
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://bachelor-thesis-kulak.github.io/Wave-Animations/assets/css/style.css?v=d0a786cf6e19c4ddc40c16669595f8c16a93be29">
+  <link rel="stylesheet" href="/Wave-Animations/assets/css/style.css?v=d0a786cf6e19c4ddc40c16669595f8c16a93be29">
   <style>
     video {
       width: 100%;
@@ -47,7 +47,7 @@
         videoElement.setAttribute('controls', '');
         videoElement.setAttribute('type', 'video/mp4');
         // Set src for the video element
-        videoElement.setAttribute('src', 'https://github.com/Bachelor-thesis-KULAK/Wave-Animations/raw/main/' + div.getAttribute('video_src')); // Set the source of the video
+        videoElement.setAttribute('src', '/Wave-Animations/' + div.getAttribute('video_src')); // Set the source of the video
         // Automatically add not-supported message
         var defaultText = document.createTextNode('Your browser does not support the video tag.');
         videoElement.appendChild(defaultText);
