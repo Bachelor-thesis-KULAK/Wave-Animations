@@ -77,6 +77,30 @@
       });
 
     });
+
+    // Extend Video.js prototype to include custom controls
+    videojs.Player.prototype.handleKeyPress = function(event) {
+      if (event.keyCode === 32) { // space bar key code
+        if (this.paused()) {
+          this.play();
+        } else {
+          this.pause();
+        }
+      } else if (event.keyCode === 37) { // left arrow key code
+        // Seek backward by 10 seconds
+        this.currentTime(this.currentTime() - 2);
+      } else if (event.keyCode === 39) { // right arrow key code
+        // Seek forward by 10 seconds
+        this.currentTime(this.currentTime() + 2);
+      }
+    };
+  
+    // Add event listener to all Video.js players on the page
+    videojs.getAllPlayers().forEach(function(player) {
+      player.on('keydown', function(event) {
+        player.handleKeyPress(event);
+      });
+    });
   </script>
 </head>
 <body>
@@ -214,7 +238,8 @@
 
   <!-- Necessary videojs script -->
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-  <!-- Hotkeys such as space for pause, left and right arrow to play back or forward -->
+  <!-- Hotkeys such as space for pause, left and right arrow to play back or forward ->
   <script src="//cdn.sc.gl/videojs-hotkeys/0.2/videojs.hotkeys.min.js"></script>
+  -->
 </body>
 </html>
