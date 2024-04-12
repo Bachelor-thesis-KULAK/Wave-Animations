@@ -65,7 +65,7 @@
         // playbackrates: the video can be watched at 10x slower, 4x slower, 2x slower and 2x faster (we can choose other rates as well)
         // inactivityTimeout: controlbar at the bottom disappears after 200 milliseconds (because it interferes with the video)
         // controlBar: I have removed the volumePanel and the pictureInPictureToggle
-        videojs(videoElement, {
+        var player = videojs(videoElement, {
           fluid: true,
           playbackRates: [0.1, 0.25, 0.5, 1, 2, 10],
           inactivityTimeout: 200,
@@ -74,30 +74,13 @@
             pictureInPictureToggle: false
           }
         });
-      });
-
-      // Extend Video.js prototype to include custom controls
-      videojs.Player.prototype.handleKeyPress = function(event) {
-        if (event.keyCode === 32) { // space bar key code
-          if (this.paused()) {
-            this.play();
-          } else {
-            this.pause();
-          }
-        } else if (event.keyCode === 37) { // left arrow key code
-          // Seek backward by 10 seconds
-          this.currentTime(this.currentTime() - 2);
-        } else if (event.keyCode === 39) { // right arrow key code
-          // Seek forward by 10 seconds
-          this.currentTime(this.currentTime() + 2);
-        }
-      };
-    
-      // Add event listener to all Video.js players on the page
-      videojs.getAllPlayers().forEach(function(player) {
-        player.on('keydown', function(event) {
-          player.handleKeyPress(event);
+        player.hotkeys({
+          enableMute: false,
+          enableVolumeScroll: false,
+          seekStep: 2,    // seek forward/backward by 2 seconds
+          enableModifiersForNumbers: false // disable number keys seeking
         });
+        
       });
 
     }); // end of DOM
