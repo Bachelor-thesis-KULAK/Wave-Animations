@@ -75,9 +75,11 @@
           }
         });
         player.hotkeys({
+          skipInitialFocus: true, // don't focus initially
+          enableInactiveFocus: false,
           enableMute: false,
           enableVolumeScroll: false,
-          seekStep: 2,    // seek forward/backward by 2 seconds
+          seekStep: 1,    // seek forward/backward by 1 second
           enableModifiersForNumbers: false // disable number keys seeking
         });
         
