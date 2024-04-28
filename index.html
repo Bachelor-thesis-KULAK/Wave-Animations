@@ -132,7 +132,7 @@
         \end{cases} \]
     This coordinate transformation preserves the shape of the wave equation, which is now \( \frac{\partial^2 u}{\partial r^2} = \frac{\partial^2 u}{\partial s^2} \). 
     We also require the left boundary \( x = 0 \) and the right boundary \( x = L(t) \) to be mapped on \( s = 0 \) and \( s = 1 \) respectively, which gives a constraint on \( R \), namely \( R(t+L(t)) - R(t-L(t)) = 2 \) must be fulfilled for each time \( t \).
-    In the new coordinates, solving the wave equation is simple since the domain is constant in time. The solution can be written as an infinite series of eigenmodes: \( u = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi R(t-x)} - e^{-i n\pi R(t+x)}\right) \).
+    In the new coordinates, solving the wave equation is simple since the domain is constant in time. The solution can be written as an infinite series of eigenmodes: \( u = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi (r-s)} - e^{-i n\pi (r+s)}\right) \).
     Going back to the variables \( x \) and \( t \), the solution is
       \[ u(x,t) = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi R(t-x)} - e^{-i n\pi R(t+x)}\right) \]
     The coefficients \( C_n \) are determined by the initial conditions: 
