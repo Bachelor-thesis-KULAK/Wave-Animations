@@ -157,8 +157,9 @@
     In the new coordinates, solving the wave equation is simple since the domain is constant in time. The solution can be written as an infinite series of eigenmodes: \( u = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi (r-s)} - e^{-i n\pi (r+s)}\right) \).
     Going back to the variables \( x \) and \( t \), the solution is
       \[ u(x,t) = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi R(t-x)} - e^{-i n\pi R(t+x)}\right) \, . \]
-    The coefficients \( C_n \) are determined by the initial conditions: 
+    The coefficients \( C_n \) are determined by the initial conditions:  
       \[ C_n = \frac{-i}{4\pi n} \int_{-L(0)}^{L(0)} \left(f'(x)+g(x)\right) e^{i\pi n R(x)} dx \, .\]
+    Here, the functions \(g(x)\) and \(f(x)\) have been extended oddly (f(-x) = -f(x)).
     <h3>...</h3>
     
     <h3>Titel</h3>
