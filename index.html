@@ -177,7 +177,9 @@
     \]
     <h3>Interpolation</h3>
     This method aims to find a transformation \( R \) starting from \( L \). Since it is sufficient to find any transformation which has the desired properties,  
-    it is possible to (entirely) choose \( R \) on the domain \( [-L(0), L(0) \), as long as it is continuous and \(R(L(0)) = R(-L(0)) + 2 \).
+    it is possible to (entirely) choose \( R \) on the domain \( [-L(0), L(0)] \), as long as it is continuous and \(R(L(0)) = R(-L(0)) + 2 \).
+    Further, by exploiting the relation \( R(t+L(t)) = R(t-L(t)) + 2\) it is possible to construct \( R \) beyond this domain. 
+    In our method, we only define \( R \) on a discrete amount of points, which 
     
     
     <h3>Characteristics</h3>
