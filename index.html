@@ -170,13 +170,30 @@
         The coefficients \( C_n \) are determined by the initial conditions:  
         \[ C_n = \frac{-i}{4\pi n} \int_{-L(0)}^{L(0)} \left(f'(x)+g(x)\right) e^{i\pi n R(x)} dx \, .\]
         Here, the functions \(g(x)\) and \(f(x)\) have been extended oddly (\( f(-x) = -f(x) \) and \( g(-x)=-g(x) \)).
+        <br>
+        As an example, suppose the length is linearly varying, so \( L = L_0 + vt \). Then it can be shown that a suitable transformation \( R \) is given by:
+        \[
+          \begin{align}
+            \begin{cases}
+              R(\xi) = \frac{\xi}{L_0} & \quad \text{for } L(t) = L_0 \, , \\
+              R(\xi) = 2 \frac{\ln\left| 1+\frac{v}{L_0}\xi \right|}{\ln\frac{1+v}{1-v}} & \quad \text{for } L(t) = L_0 + vt \quad (v \neq 0) \, .
+            \end{cases}
+          \end{align}
+        \]
       </div>
-      </details>
-    <!--<h3>Moore</h3>-->
+    </details>
+    
+    <details>
+      <summary>Inverse method</summary>
+      <div class="details">
+        It is easier to solve the inverse problem: to start with a transformation \( R \) and find a corresponding length \( L(t) \). This allows for easy examples of lengths, for which \( R \) is analytically solvable.
+      </div>
+    </details>
+      
     <details>
       <summary>Moore</summary>
       <div class="details">
-        The method proposed by Moore [1], makes use of perturbation theory for low velocities in order to find an expression for \( R \) starting from \( L \). This is given by:
+        The method proposed by Moore [1], makes use of perturbation theory for low velocities \( |\dot{L}| \) in order to find an expression for \( R \) starting from \( L \). The resulting transformation \( R \) is given by an infinite series of functions:
         \[
           R(\xi) = \sum^\infty_{l=0} \int^\xi_0 \gamma_{l}(t') \,dt' ,
         \]
@@ -189,7 +206,6 @@
         \]
       </div>
     </details>
-    <!--<h3>Interpolation</h3>-->
     <details>
       <summary>Interpolation</summary>
       <div class="details">
