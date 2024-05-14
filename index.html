@@ -187,6 +187,21 @@
       <summary>Inverse method</summary>
       <div class="details">
         It is easier to solve the inverse problem: to start with a transformation \( R \) and find a corresponding length \( L(t) \). This allows for easy examples of lengths, for which \( R \) is analytically solvable.
+        The method works by solving the relation \( R(t+L) - R(t-L) = 2 \) to the function \( L \). Alternatively, it is possible to differentiate this relation to obtain
+        \[
+          \dot{L}(t) = \frac{R'[t-L(t)] - R'[t+L(t)]}{R'[t-L(t)] + R'(t+L(t))} \, .
+        \]
+        Then solve this differential equation to find \( L \). Some simple functions that can be found this way are:
+        \begin{tabular}{lcl}
+          $L(t)$&\phantom{eee}& $R(\xi) $\\
+          $\displaystyle L_0+vt$ && $\displaystyle 2 \frac{\ln\left|1+\frac{v}{L_0}\xi\right|}{\ln\frac{1+v}{1-v}}$ \\[8pt]
+          $\displaystyle L_0$ && $\displaystyle \frac{\xi}{L_0}$ \\[8pt]
+          $\displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{Ae^{kt} - Be^{-kt}} \right)$ && $\displaystyle A e^{k\xi} + B e^{-k\xi}$ \\[10pt]
+          $\displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{A}\csch(kt+\varphi) \right)$ && $\displaystyle A\cosh(k\xi+\varphi)$\\[10pt]
+          $\displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{A}\sech(kt+\varphi) \right)$ && $\displaystyle A\sinh(k\xi+\varphi)$\\[10pt]
+          $\displaystyle \frac{-1}{k\tan\left(\frac{2}{A}\right)} + \frac{\sqrt{1 + (1+(kt+\varphi)^2) \tan\left(\frac{2}{A}\right)^2}}{k\left|\tan\left(\frac{2}{A}\right)\right|}$ && $A\arctan\left(k\xi+\varphi\right)$\\[10pt]
+          $\displaystyle \frac{1}{2A(t+\varphi)}$ && $\displaystyle A(\xi+\varphi)^2$\\[5pt]
+        \end{tabular}
       </div>
     </details>
       
