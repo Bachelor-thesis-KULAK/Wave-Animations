@@ -176,14 +176,27 @@
     \end{cases}
     \]
     <h3>Interpolation</h3>
-    This method aims to find a transformation \( R \) starting from \( L \). Since it is sufficient to find any transformation which has the desired properties,  
+    This method aims to find a transformation \( R \) starting from \( L \). Since it is sufficient to find any transformation which satisfies \( R(t+L(t) = R(t-L(t) +2 \),  
     it is possible to (entirely) choose \( R \) on the domain \( [-L(0), L(0)] \), as long as it is continuous and \(R(L(0)) = R(-L(0)) + 2 \).
     Further, by exploiting the relation \( R(t+L(t)) = R(t-L(t)) + 2\) it is possible to construct \( R \) beyond this domain. 
 
-    To extend \( R \) on certain points \( \xi \), it is hard - sometimes impossible - to find a corresponding t such that \( \xi = t + L(t) \). Then it is not possible to use the previous relation to find \( R(\xi))\).
-    Thus, in order to find \( R \), a time array is chosen, such that we can find all values \( \xi_i = t_i + L(t_i) \) from the values \( t_i - L(t_i) \). 
+    To extend \( R \) on certain points \( \xi \), it is hard to find a corresponding t such that \( \xi = t + L(t) \), which is necessary to use the previous relation.
+    Thus, in order to find \( R \), it is more convenient to choose a time array, such that we can find all values \( \xi_i = t_i + L(t_i) \) from the values \( t_i - L(t_i) \). 
+    In the case when \( t_i - L(t_i) \) is unknown, it is interpolated from neighbouring values.
 
     <h3>Characteristics</h3>
+    Instead of finding \( R \) and calculating the coefficients using the initial conditions, this method directly calculates the wave, similarly to the interpolation method. 
+    Again, write the solution of the wave equation as
+\[
+u(x,t) = v(t+x) + w(t-x) .
+\]
+The boundary condition \(u(0,t) = 0\) implies \(w(t) = -v(t)\), so
+\[
+u(x,t) = w(t-x) - w(t+x).
+\]
+
+    From the initial conditions and the previous relation, \(w\) can be found on the domain \( [0,L(0)]\). 
+    From the boundary condition, the relation \[w(t+L(t)) = w(t-L(t))\] can be derived, and by using the same protocol from the interpolation method, we can find \(w\) (and thus \(u\)) on its entire domain.
     
     <h3>Numerical scheme </h3>
     
