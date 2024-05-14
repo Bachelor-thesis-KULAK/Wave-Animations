@@ -192,16 +192,19 @@
           \dot{L}(t) = \frac{R'[t-L(t)] - R'[t+L(t)]}{R'[t-L(t)] + R'(t+L(t))} \, .
         \]
         Then solve this differential equation to find \( L \). Some simple functions that can be found this way are:
-        \begin{tabular}{lcl}
-          $L(t)$&\phantom{eee}& $R(\xi) $\\
-          $\displaystyle L_0+vt$ && $\displaystyle 2 \frac{\ln\left|1+\frac{v}{L_0}\xi\right|}{\ln\frac{1+v}{1-v}}$ \\[8pt]
-          $\displaystyle L_0$ && $\displaystyle \frac{\xi}{L_0}$ \\[8pt]
-          $\displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{Ae^{kt} - Be^{-kt}} \right)$ && $\displaystyle A e^{k\xi} + B e^{-k\xi}$ \\[10pt]
-          $\displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{A}\csch(kt+\varphi) \right)$ && $\displaystyle A\cosh(k\xi+\varphi)$\\[10pt]
-          $\displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{A}\sech(kt+\varphi) \right)$ && $\displaystyle A\sinh(k\xi+\varphi)$\\[10pt]
-          $\displaystyle \frac{-1}{k\tan\left(\frac{2}{A}\right)} + \frac{\sqrt{1 + (1+(kt+\varphi)^2) \tan\left(\frac{2}{A}\right)^2}}{k\left|\tan\left(\frac{2}{A}\right)\right|}$ && $A\arctan\left(k\xi+\varphi\right)$\\[10pt]
-          $\displaystyle \frac{1}{2A(t+\varphi)}$ && $\displaystyle A(\xi+\varphi)^2$\\[5pt]
-        \end{tabular}
+        \[
+          \begin{array}{|l|c|l|}
+            \hline
+            L(t) & \phantom{eee} & R(\xi) \\ \hline
+            \displaystyle L_0+vt && \displaystyle 2 \frac{\ln\left|1+\frac{v}{L_0}\xi\right|}{\ln\frac{1+v}{1-v}} \\ \hline
+            \displaystyle L_0 && \displaystyle \frac{\xi}{L_0} \\ \hline
+            \displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{Ae^{kt} - Be^{-kt}} \right) && \displaystyle A e^{k\xi} + B e^{-k\xi} \\ \hline
+            \displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{A}\csch(kt+\varphi) \right) && \displaystyle A\cosh(k\xi+\varphi)\\ \hline
+            \displaystyle \frac{1}{k} \arcsinh\left( \frac{1}{A}\sech(kt+\varphi) \right) && \displaystyle A\sinh(k\xi+\varphi)\\ \hline
+            \displaystyle \frac{-1}{k\tan\left(\frac{2}{A}\right)} + \frac{\sqrt{1 + (1+(kt+\varphi)^2) \tan\left(\frac{2}{A}\right)^2}}{k\left|\tan\left(\frac{2}{A}\right)\right|} && A\arctan\left(k\xi+\varphi\right)\\ \hline
+            \displaystyle \frac{1}{2A(t+\varphi)} && \displaystyle A(\xi+\varphi)^2 \\ \hline
+          \end{array}
+        \]
       </div>
     </details>
       
