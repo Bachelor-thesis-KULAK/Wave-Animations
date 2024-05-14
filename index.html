@@ -128,50 +128,29 @@
     <h1>Wave Animations</h1>
     
     <p>This repository contains the animations corresponding to the simulations created for the bachelor project <a href="https://github.com/Bachelor-thesis-KULAK/Wave-Animations">Chaos in the Wave Equation: Dynamic Boundary Conditions on a String</a>.</p>
-    <!--
-    <ul>
-      <li><strong>Part 1</strong>
-        <ul>
-          <li>
-          <li>(2) Interpolation method: simulation of linear, quadratic and cubic function for \(R\), compared for two different \(L\)</li>
-          <li>(6) Numerical: (1) first timeste p/ (1) lambda instability / (1) sharp pulse instability / (3) \(L\) instability</li>
-          <li>(10) Simulations: (8) analytically solvable (basic) and (2) other conditions</li>
-        </ul>
-      </li>
-      <li><strong>Part 2</strong>
-        <ul>
-          <li>(2) Example map F for fixed and free boundary</li>
-          <li>(1) All numerical schemes</li>
-          <li>(5) Result of the wave from Chen's examples</li>
-          <li>(1) Damped wave equation (perturbation), with non-damped analytical solution with VdP bc</li>
-          <li>(1) Alternative damped solving method</li>
-          <li>(1) All methods for Damped wave equation, with fixed boundaries </li>
-        </ul>
-      </li>
-    </ul>
-    -->
- 
     <h2>Part 1: variable length domain</h2>
     <!--<h3>Coordinate transformation: analytical solution</h3>-->
     <details>
       <summary>Coordinate transformation: analytical solution</summary>
-      We aim to solve the wave equation \( \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \) with wave speed \( c = 1 \) on a domain \( [0, L(t)] \), where the length \( L(t) \) depends on the time.
-      To uniquely determine the wave solution, initial conditions are given. The initial position is given by a function \( f \), and the initial velocity by a function \( g \), so \( u(x,0) = f(x) \) and \( \frac{\partial u}{\partial t}(x,0) = g(x) \) for each position \( x \) between \( 0 \) and \( L(0) \). 
-      First, a coordinate transformation \( R \) from variables \( x \) and \( t \) to new variables \( s \) and \( r \) is used: 
-      \[ \begin{cases} 
-        r + s = R(t + x) \, , \\
-        r - s = R(t - x) \, .
-      \end{cases} \]
-      This coordinate transformation preserves the shape of the wave equation, which is now \( \frac{\partial^2 u}{\partial r^2} = \frac{\partial^2 u}{\partial s^2} \). 
-      We also require the left boundary \( x = 0 \) and the right boundary \( x = L(t) \) to be mapped on \( s = 0 \) and \( s = 1 \) respectively, which gives a constraint on \( R \), namely 
-      \[ R(t+L(t)) - R(t-L(t)) = 2 \] must be fulfilled for each time \( t \).
-      In the new coordinates, solving the wave equation is simple since the domain is constant in time. The solution can be written as an infinite series of eigenmodes: \( u = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi (r-s)} - e^{-i n\pi (r+s)}\right) \).
-      Going back to the variables \( x \) and \( t \), the solution is
-      \[ u(x,t) = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi R(t-x)} - e^{-i n\pi R(t+x)}\right) \, . \]
-      The coefficients \( C_n \) are determined by the initial conditions:  
-      \[ C_n = \frac{-i}{4\pi n} \int_{-L(0)}^{L(0)} \left(f'(x)+g(x)\right) e^{i\pi n R(x)} dx \, .\]
-      Here, the functions \(g(x)\) and \(f(x)\) have been extended oddly (\( f(-x) = -f(x) \) and \( g(-x)=-g(x) \)).
-    </details>
+      <div class="details">
+        We aim to solve the wave equation \( \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \) with wave speed \( c = 1 \) on a domain \( [0, L(t)] \), where the length \( L(t) \) depends on the time.
+        To uniquely determine the wave solution, initial conditions are given. The initial position is given by a function \( f \), and the initial velocity by a function \( g \), so \( u(x,0) = f(x) \) and \( \frac{\partial u}{\partial t}(x,0) = g(x) \) for each position \( x \) between \( 0 \) and \( L(0) \). 
+        First, a coordinate transformation \( R \) from variables \( x \) and \( t \) to new variables \( s \) and \( r \) is used: 
+        \[ \begin{cases} 
+          r + s = R(t + x) \, , \\
+          r - s = R(t - x) \, .
+        \end{cases} \]
+        This coordinate transformation preserves the shape of the wave equation, which is now \( \frac{\partial^2 u}{\partial r^2} = \frac{\partial^2 u}{\partial s^2} \). 
+        We also require the left boundary \( x = 0 \) and the right boundary \( x = L(t) \) to be mapped on \( s = 0 \) and \( s = 1 \) respectively, which gives a constraint on \( R \), namely 
+        \[ R(t+L(t)) - R(t-L(t)) = 2 \] must be fulfilled for each time \( t \).
+        In the new coordinates, solving the wave equation is simple since the domain is constant in time. The solution can be written as an infinite series of eigenmodes: \( u = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi (r-s)} - e^{-i n\pi (r+s)}\right) \).
+        Going back to the variables \( x \) and \( t \), the solution is
+        \[ u(x,t) = \sum_{n=-\infty}^{\infty} C_n \left( e^{-i n\pi R(t-x)} - e^{-i n\pi R(t+x)}\right) \, . \]
+        The coefficients \( C_n \) are determined by the initial conditions:  
+        \[ C_n = \frac{-i}{4\pi n} \int_{-L(0)}^{L(0)} \left(f'(x)+g(x)\right) e^{i\pi n R(x)} dx \, .\]
+        Here, the functions \(g(x)\) and \(f(x)\) have been extended oddly (\( f(-x) = -f(x) \) and \( g(-x)=-g(x) \)).
+      </div>
+      </details>
     <!--<h3>Moore</h3>-->
     <details>
       <summary>Moore</summary>
