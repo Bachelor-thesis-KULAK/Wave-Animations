@@ -202,57 +202,65 @@
     <!--<h3>Numerical scheme </h3>-->
     <details>
       <summary>Numerical scheme</summary>
-      For a varying domain, it is not possible to choose an equidistant grid. Therefore, we map the \((x,t)\) domain onto a fixed \((s,\tau)\) domain. Consequently, 
+      <div class="details">
+        For a varying domain, it is not possible to choose an equidistant grid. Therefore, we map the \((x,t)\) domain onto a fixed \((s,\tau)\) domain. Consequently, 
+      </div>
     </details>
 
     <br>
     
     <details>
       <summary>Videos: Numerical</summary>
-      <p>
-        The first video correspond to Fig. 1.11 and illustrates the need of central differences for the first time step. 
-        Further, the second video shows that the numerical simulation cannot deal with sharp pulses, see Fig. 1.24. 
-        The last four videos are for confirming the stability analysis from Sec. 1.7.3.
-      </p>
-      <div class="videos">
-        <div class="video-div" video_src="Part_1/Numerical/numerical_first_timestep.mp4"></div>
-        <div class="video-div" video_src="Part_1/Numerical/spike.mp4"></div>
-        <div class="video-div" video_src="Part_1/Numerical/numerical_unstable_boom.mp4"></div>
-        <div class="video-div" video_src="Part_1/Numerical/divergence_at_high_t.mp4"></div>
-        <div class="video-div" video_src="Part_1/Numerical/numerical_unstable2.mp4"></div>
-        <div class="video-div" video_src="Part_1/Numerical/numerical_unstable3.mp4"></div>
+      <div class="details">
+        <p>
+          The first video correspond to Fig. 1.11 and illustrates the need of central differences for the first time step. 
+          Further, the second video shows that the numerical simulation cannot deal with sharp pulses, see Fig. 1.24. 
+          The last four videos are for confirming the stability analysis from Sec. 1.7.3.
+        </p>
+        <div class="videos">
+          <div class="video-div" video_src="Part_1/Numerical/numerical_first_timestep.mp4"></div>
+          <div class="video-div" video_src="Part_1/Numerical/spike.mp4"></div>
+          <div class="video-div" video_src="Part_1/Numerical/numerical_unstable_boom.mp4"></div>
+          <div class="video-div" video_src="Part_1/Numerical/divergence_at_high_t.mp4"></div>
+          <div class="video-div" video_src="Part_1/Numerical/numerical_unstable2.mp4"></div>
+          <div class="video-div" video_src="Part_1/Numerical/numerical_unstable3.mp4"></div>
+        </div>
       </div>
     </details>
     <details>
       <summary>Videos: Simulations</summary>
-      <p>
-        Here, the eight simulations from Sec. 1.8 and their corresponding error graphs in Fig. 1.23 are shown in the first eight videos. 
-        The last three are with a boundary dynamic that was not analytically solvable by the proposed methods, the method of characteristics is used as a benchmark. 
-        The initial conditions are respectively a sine wave, gaussian, and a quadratic function. Fig. 1.25 shows the error graph of the first two, the third one is similar. 
-      </p>
-      <div class="videos">
-        <div class="video-div" video_src="Part_1/Simulations/linear_sin.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/linear_wavepacket.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/exp_sin.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/exp_wavepacket.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/sinh_sin.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/sinh_wavepacket.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/atan_sin.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/atan_wavepacket.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/nonanalytical_sin.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/nonanalytical_gauss.mp4"></div>
-        <div class="video-div" video_src="Part_1/Simulations/nonanalytical_quadratic.mp4"></div>
+      <div class="details">
+        <p>
+          Here, the eight simulations from Sec. 1.8 and their corresponding error graphs in Fig. 1.23 are shown in the first eight videos. 
+          The last three are with a boundary dynamic that was not analytically solvable by the proposed methods, the method of characteristics is used as a benchmark. 
+          The initial conditions are respectively a sine wave, gaussian, and a quadratic function. Fig. 1.25 shows the error graph of the first two, the third one is similar. 
+        </p>
+        <div class="videos">
+          <div class="video-div" video_src="Part_1/Simulations/linear_sin.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/linear_wavepacket.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/exp_sin.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/exp_wavepacket.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/sinh_sin.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/sinh_wavepacket.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/atan_sin.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/atan_wavepacket.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/nonanalytical_sin.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/nonanalytical_gauss.mp4"></div>
+          <div class="video-div" video_src="Part_1/Simulations/nonanalytical_quadratic.mp4"></div>
+        </div>
       </div>
     </details>
     <details>
       <summary>Videos: Other examples</summary>
-      <p>
-        The first two videos correspond to Figs. 1.6 and 1.7. Fig. 1.13 is a snapshot of the first video, illustrating why the initial conditions should be compatible with the string's movement, which is here not the case.
-      </p>
-      <div class="videos">
-        <div class="video-div" video_src="Part_1/interpol_initials_Lslow.mp4"></div>
-        <div class="video-div" video_src="Part_1/interpol_initials_Lfast.mp4"></div>
-        <div class="video-div" video_src="Part_1/bad_sin.mp4"></div>
+      <div class="details">
+        <p>
+          The first two videos correspond to Figs. 1.6 and 1.7. Fig. 1.13 is a snapshot of the first video, illustrating why the initial conditions should be compatible with the string's movement, which is here not the case.
+        </p>
+        <div class="videos">
+          <div class="video-div" video_src="Part_1/interpol_initials_Lslow.mp4"></div>
+          <div class="video-div" video_src="Part_1/interpol_initials_Lfast.mp4"></div>
+          <div class="video-div" video_src="Part_1/bad_sin.mp4"></div>
+        </div>
       </div>
     </details>
     <h2>Part 2</h2>
