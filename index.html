@@ -72,6 +72,17 @@
       width: auto; 
       height: 0.75em; 
     }
+    .citation {
+      display: flex;
+      width: 100%;
+    }
+    .citation-number {
+      flex-shrink: 0; /* Prevent the citation number from shrinking */
+      margin-right: 10px;
+    }
+    .citation-details {
+      flex-grow: 1; /* Let the citation details occupy remaining space */
+    }
   </style>
   <script>
     // Wait for the document to be fully loaded
@@ -352,12 +363,18 @@
     </details>
 
     <h2>References</h2>
-    [1] Moore, G. T. (1970). Quantum theory of the electromagnetic field in a variable‐length one‐dimensional cavity. <i>Journal of mathematical physics, 11</i>(9), 2679-2691. 
-    <br>
-    [2] Dodonov, V. (2020). Fifty years of the dynamical Casimir effect. <i>Physics, 2</i>(1), 67-104. 
-    <br>
-    [3] Chen, G., Hsu, S. B., Zhou, J., Chen, G., & Crosta, G. (1998). Chaotic vibrations of the one-dimensional wave equation due to a self-excitation boundary condition. Part I: Controlled hysteresis. <i>Transactions of the american mathematical society, 350</i>(11), 4265-4311.
-    <br>
+    <div class="citation">
+      <span class="citation-number">[1]</span>
+      <span class="citation-details">Moore, G. T. (1970). Quantum theory of the electromagnetic field in a variable‐length one‐dimensional cavity. <i>Journal of mathematical physics, 11</i>(9), 2679-2691.</span>
+    </div>
+    <div class="citation">
+      <span class="citation-number">[2]</span>
+      <span class="citation-details">Dodonov, V. (2020). Fifty years of the dynamical Casimir effect. <i>Physics, 2</i>(1), 67-104.</span>
+    </div>
+    <div class="citation">
+      <span class="citation-number">[3]</span>
+      <span class="citation-details">Chen, G., Hsu, S. B., Zhou, J., Chen, G., & Crosta, G. (1998). Chaotic vibrations of the one-dimensional wave equation due to a self-excitation boundary condition. Part I: Controlled hysteresis. <i>Transactions of the american mathematical society, 350</i>(11), 4265-4311.</span>
+    </div>
   </div>
 </body>
 </html>
