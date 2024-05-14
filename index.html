@@ -162,7 +162,23 @@
     The coefficients \( C_n \) are determined by the initial conditions:  
       \[ C_n = \frac{-i}{4\pi n} \int_{-L(0)}^{L(0)} \left(f'(x)+g(x)\right) e^{i\pi n R(x)} dx \, .\]
     Here, the functions \(g(x)\) and \(f(x)\) have been extended oddly (\( f(-x) = -f(x) \) and \( g(-x)=-g(x) \)).
+
     <h3>Moore</h3>
+    The method proposed by Moore [1], makes use of perturbation theory for low velocities in order to find an expression for \( R \). This is given by:
+ \[
+R(\xi) = \sum^\infty_{l=0} \int^\xi_0 \gamma_{l}(t') \,dt' ,
+\]
+where
+\[
+    \begin{dcases}
+        \gamma_0(t) = \frac{1}{L(t)} \qcm \\
+        \gamma_l(t) = \sum_{i=1}^l \frac{-1}{(2i+1)!} L^{2i} \frac{\mathrm{d}^{2i} \gamma_{l-i}}{\mathrm{d}t^{2i}}(t) \quad \text{for } l > 0 .
+    \end{dcases}
+   
+\\]
+
+
+    
     <h3>Interpolation</h3>
     <h3>Characteristics</h3>
     <h3>Numerical scheme </h3>
