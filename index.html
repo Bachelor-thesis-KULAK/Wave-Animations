@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -179,9 +179,10 @@
     This method aims to find a transformation \( R \) starting from \( L \). Since it is sufficient to find any transformation which has the desired properties,  
     it is possible to (entirely) choose \( R \) on the domain \( [-L(0), L(0)] \), as long as it is continuous and \(R(L(0)) = R(-L(0)) + 2 \).
     Further, by exploiting the relation \( R(t+L(t)) = R(t-L(t)) + 2\) it is possible to construct \( R \) beyond this domain. 
-    In our method, we only define \( R \) on a discrete amount of points, which 
-    
-    
+
+    To extend \( R \) on certain points \( \xi \), it is hard - sometimes impossible - to find a corresponding t such that \( \xi = t + L(t) \). Then it is not possible to use the previous relation to find \( R(\xi))\).
+    Thus, in order to find \( R \), a time array is chosen, such that we can find all values \( \xi_i = t_i + L(t_i) \) from the values \( t_i - L(t_i) \). 
+
     <h3>Characteristics</h3>
     
     <h3>Numerical scheme </h3>
