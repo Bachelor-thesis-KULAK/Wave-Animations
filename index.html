@@ -193,7 +193,7 @@
         \]
         Then solve this differential equation to find \( L \). Some simple functions that can be found this way are:
         \[
-          \begin{array}{|l|c|l|}
+          \begin{array}{|l|l|}
             \hline
             L(t) & R(\xi) \\ \hline
             \displaystyle L_0+vt & \displaystyle 2 \frac{\ln\left|1+\frac{v}{L_0}\xi\right|}{\ln\frac{1+v}{1-v}} \\ \hline
@@ -231,7 +231,7 @@
         it is possible to (entirely) choose \( R \) on the domain \( [-L(0), L(0)] \), as long as it is continuous and \(R(L(0)) = R(-L(0)) + 2 \).
         Further, by exploiting the relation \( R(t+L(t)) = R(t-L(t)) + 2\) it is possible to construct \( R \) beyond this domain. 
   
-        To extend \( R(\xi) \) on certain points \( \xi \), it is hard to find a corresponding t such that \( \xi = t + L(t) \), which is necessary to use the previous relation.
+        To extend \( R(\xi) \) on certain points \( \xi \), it is hard to find a corresponding \( t \) such that \( \xi = t + L(t), \) which is necessary to use the previous relation.
         Thus, in order to find \( R \), it is more convenient to choose a time array \( (t_i)_i \). Then, we want to find the values of \( R \) at the points \( \xi_i = t_i + L(t_i) \), from the values of \( R \) at \( t_i - L(t_i) \). 
         Often, the point \( t_i - L(t_i) \) will lie between two previously calculated \( \xi_j \) points, in that case we use spline interpolation to find the value of \( R \) there.
         <br>
