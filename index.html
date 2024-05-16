@@ -272,10 +272,10 @@
         The grid spacing \( \Delta s = \frac{1}{N_x-1} \) does not depend on time anymore. Denote the values that \( u \) takes on the grid as \( u_{i,j} = u(i\Delta x, j\Delta t) \). The derivatives in the wave equation can be approximated as finite differences:
         \[
           \begin{cases}
-            \frac{\partial^2 u}{\partial\tau^2} = \frac{ u_{i,j+1} + u_{i,j-1} - 2u_{i,j} }{\Delta t^2} + \mathcal{O}(\Delta t^2) \, ,\\
-            \frac{\partial^2 u}{\partial s^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta s^2} + \mathcal{O}(\Delta s^2) \, , \\
-            \frac{\partial u}{\partial s} = \frac{ u_{i+1,j} - u_{i-1,j} }{2\partial s} + \mathcal{O}(\Delta s^2) \, ,\\
-            \frac{\partial^2 u}{\partial s\partial \tau} = \frac{ u_{i+1,j+1} - u_{i+1,j-1 - u_{i-1,j+1} + u_{i-1,j-1} }{4\Delta s\Delta t} + \mathcal{O}(\Delta s^2 + \Delta t^2) \, .
+            \frac{\partial^2 u}{\partial\tau^2} = \frac{ u_{i,j+1} + u_{i,j-1} - 2u_{i,j} }{\Delta t^2} + O(\Delta t^2) \, ,\\
+            \frac{\partial^2 u}{\partial s^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta s^2} + O(\Delta s^2) \, , \\
+            \frac{\partial u}{\partial s} = \frac{ u_{i+1,j} - u_{i-1,j} }{2\partial s} + O(\Delta s^2) \, ,\\
+            \frac{\partial^2 u}{\partial s\partial \tau} = \frac{ u_{i+1,j+1} - u_{i+1,j-1 - u_{i-1,j+1} + u_{i-1,j-1} }{4\Delta s\Delta t} + O(\Delta s^2 + \Delta t^2) \, .
           \end{cases}
         \]
         The wave equation then gives a relation between the points \( u_{i-1,j+1} \), \( u_{i,j+1} \), \( u_{i+1,j+1} \) on the one hand and \( u_{i-1,j} \), \( u_{i,j} \), \( u_{i+1,j} \), \( u_{i-1,j-1} \), \( u_{i,j-1} \), \( u_{i+1,j-1} \). 
@@ -342,6 +342,32 @@
     </details>
     <h2>Part 2</h2>
     <h3>Derivations</h3>
+    <details>
+      <summary>Characteristics method by Chen</summary>
+      <div class="details">
+        In the second part of the thesis, we still use a fixed left boundary but swap the variable length for a dynamic boundary condition at the right boundary. With a suited coordinate transformation, we assume \( c = 1 \) and \( L = 1 \).
+        For the right boundary condition, we use a "Van der Pol" condition from the paper of Chen [3], namely
+        \[
+          \frac{\partial u}{\partial x}(1,t) = \alpha \frac{\partial u}{\partial t}(1,t) - \beta \left( \frac{\partial u}{\partial t} \right)^3 \, ,
+        \]
+        where \( \alpha, \beta > 0 \) are parameters. We can write the wave solution as the sum of two functions: \( u(x,t) = v(x+t) + w(x-t) \). The notation here is slightly different than in part 1, to better follow Chen.
+        Denote the derivatives of \( v \) and \( w \) as \( \nu \) and \( \omega \) respectively. By differentiating \( u \), one finds
+        \[
+          \begin{cases}
+            \nu(x+t) = \frac{1}{2} \left( \frac{\partial u}{\partial x}(x,t) + \frac{\partial u}{\partial t}(x,t) \right) \, , \\
+            \omega(x-t) = \frac{1}{2} \left( \frac{\partial u}{\partial x}(x,t) - \frac{\partial u}{\partial t}(x,t) \right) \, .
+          \end{cases}
+        \]
+        The right boundary condition can be rewritten using a (discontinuous) mapping \( F \) as \( \nu(1+t) = F(\omega(1-t)) \). The left boundary condition implies \( \omega(t) = \nu(-t) \).
+        Together, both boundary conditions imply that \( \nu(\xi) = F(\nu(\xi-2)) \) for all \( \xi \geq 1 \).
+        Using the initial position and initial velocity, the function \( \nu \) can be found on the interval \( [-1,1] \):
+        \[
+          \nu(x) = \frac{1}{2} ( f'(x) + g(x) ) \, .
+        \]
+        Similar to the method of characteristics in part 1, the function \( \nu \) can be extended by using the relation \( \nu(\xi) = F(\nu(\xi-2)) \). 
+        Then \( \nu \) can be integrated to find back \( v \) and the wave solution \( u \).
+      </div>
+    </details>
 
     <h3>Videos</h3>
     <details>
