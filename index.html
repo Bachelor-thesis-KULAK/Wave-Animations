@@ -260,11 +260,27 @@
         From the boundary condition \( u(L(t),t) = 0 \), the relation \[ w(t+L(t)) = w(t-L(t)) \] can be derived, and by using the same protocol from the interpolation method, we can find \( w \) (and thus \( u \)) on its entire domain.
       </div>
     </details>
-    <!--<h3>Numerical scheme </h3>-->
     <details>
       <summary>Numerical scheme</summary>
       <div class="details">
-        For a varying domain, it is not possible to choose an equidistant grid. Therefore, we map the \((x,t)\) domain onto a fixed \((s,\tau)\) domain. Consequently, 
+        This method solves for the wave by discretising the \( x \)- and \( t \)-direction into \( N_x \) and \( N_t \) points respectively. This way, we obtain a grid of \( N_x \cdot N_t \) points, with each point in the form \( (x=i \Delta x, t=j \Delta t \), 
+        where \( i \) and \( j \) indices, and with \( \Delta t = \frac{t_{\text{max}}}{N_t-1} \) and \( \Delta x = L(j\Delta t) \frac{1}{N_x-1} \) the grid spacings. To apply the wave equation, 
+        we map the grid on a rectangular grid by using the transformation from \( x \) and \( t \) to new coordinates \( s = \frac{x}{L(t)} \) and \( \tau = t \). The wave equation \( \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \) in the new coordinates becomes
+        \[
+          \frac{\partial^2 u}{\partial \tau^2} + \frac{s^2 \dot{L}^2 - 1}{L^2} \frac{\partial^2 u}{\partial s^2} + \frac{-s\ddot{L} L + 2s\dot{L}^2}{L^2} \frac{\partial u}{\partial s} - \frac{2s\dot{L}}{L} \frac{\partial^2 u}{\partial s \partial \tau} = 0 \, .
+        \]
+        The grid spacing \( \Delta s = \frac{1}{N_x-1} \) does not depend on time anymore. Denote the values that \( u \) takes on the grid as \( u_{i,j} = u(i\Delta x, j\Delta t) \). The derivatives in the wave equation can be approximated as finite differences:
+        \[
+          \begin{cases}
+            \frac{\partial^2 u}{\partial\tau^2} = \frac{ u_{i,j+1} + u_{i,j-1} - 2u_{i,j} }{\Delta t^2} + \mathcal{O}(\Delta t^2) \, ,\\
+            \frac{\partial^2 u}{\partial s^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta s^2} + \mathcal{O}(\Delta s^2) \, , \\
+            \frac{\partial u}{\partial s} = \frac{ u_{i+1,j} - u_{i-1,j} }{2\partial s} + \mathcal{O}(\Delta s^2) \, ,\\
+            \frac{\partial^2 u}{\partial s\partial \tau} = \frac{ u_{i+1,j+1} - u_{i+1,j-1 - u_{i-1,j+1} + u_{i-1,j-1} }{4\Delta s\Delta t} + \mathcal{O}(\Delta s^2 + \Delta t^2) \, .
+          \end{cases}
+        \]
+        The wave equation then gives a relation between the points \( u_{i-1,j+1} \), \( u_{i,j+1} \), \( u_{i+1,j+1} \) on the one hand and \( u_{i-1,j} \), \( u_{i,j} \), \( u_{i+1,j} \), \( u_{i-1,j-1} \), \( u_{i,j-1} \), \( u_{i+1,j-1} \). 
+        This relation can be solved as a system of equations to obtain the layer of points at time \( (j+1) \Delta t \) based on the two previous layer, together with the boundary conditions \( u_{0,j} = u_{N_x-1,j} = 0 \).
+        To start the recursion, the first two layers can be calculated using the initial position \( f \) and the initial velocity \( g \).
       </div>
     </details>
 
