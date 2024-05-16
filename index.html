@@ -261,7 +261,7 @@
     <details>
       <summary>Numerical scheme</summary>
       <div class="details">
-        This method solves for the wave by discretising the \( x \)- and \( t \)-direction into \( N_x \) and \( N_t \) points respectively. This way, we obtain a grid of \( N_x \cdot N_t \) points, with each point in the form \( (x=i \Delta x, t=j \Delta t \), 
+        This method solves for the wave by discretising the \( x \)- and \( t \)-direction into \( N_x \) and \( N_t \) points respectively. This way, we obtain a grid of \( N_x \cdot N_t \) points, with each point in the form \( (x=i \Delta x, t=j \Delta t) \), 
         where \( i \) and \( j \) indices, and with \( \Delta t = \frac{t_{\text{max}}}{N_t-1} \) and \( \Delta x = L(j\Delta t) \frac{1}{N_x-1} \) the grid spacings. To apply the wave equation, 
         we map the grid on a rectangular grid by using the transformation from \( x \) and \( t \) to new coordinates \( s = \frac{x}{L(t)} \) and \( \tau = t \). The wave equation \( \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \) in the new coordinates becomes
         \[
@@ -289,9 +289,7 @@
       <div class="details">
         <p>
           The first video corresponds to Fig. 1.11 and why an approximation with central differences for the first time step is better than with forward differences.
-          <br>
           Further, the second video shows the numerical errors induced by approximating the wave equation using finite differences. These numerical errors are high if sharp pulses occur in the wave, see Fig. 1.24. 
-          <br>
           The last four videos show that the numerical solution can diverge if \( \lambda = \frac{\Delta t}{\Delta x} > 1 \), or if the second derivative \( \ddot{L} \) is large, see the stability analysis from Sec. 1.7.3.
         </p>
         <div class="videos">
@@ -310,7 +308,6 @@
         <p>
           Here, the first eight videos show the eight simulations discussed in Sec. 1.8, for which the corresponding error graphs are shown in Fig. 1.23. Each row uses a different choice of length \( L \) from Tab. 1.3. 
           The initial conditions used are a standing sine wave (left column) and a wave packet (right column), from Tab. 1.2.
-          <br>
           The last three videos show the wave with \( L(t) = 1 + \frac{1}{100} \sin(50 t) \), the method of characteristics is used as a benchmark. 
           The initial conditions are respectively a sine wave, gaussian, and a quadratic function. Fig. 1.25 shows the error graph of the first two, the third one is similar. 
         </p>
@@ -335,7 +332,6 @@
         <p>
           The first two videos show the performance of different choices of initial \( R \) on the interval \( [-L(0), L(0)] \): a linear, quadratic and cubic polynomial, and a sigmoid-like function.
           These simulations correspond to Figs. 1.6 and 1.7. 
-          <br>
           The third video shows why it is important that Eq. 1.5 is satisfied. The video shows a standing sine wave for which the initial conditions are not compatible with the boundary condition.
           A snapshot of this video is shown in Fig. 1.13.
         </p>
