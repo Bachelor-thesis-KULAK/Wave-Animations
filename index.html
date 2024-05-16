@@ -396,42 +396,38 @@
         To start the recursive calculation, the first two layers can be found using the initial position \( f \) and the initial velocity \( g \).
       </div>
     </details>
-
-    <h3>Videos</h3>
     <details>
-      <summary>Videos: Chen</summary>
+      <summary>Damped wave equation</summary>
       <div class="details">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel ornare turpis, sed volutpat nisl. 
-        Quisque finibus enim nisi, vel maximus eros vestibulum a. Integer id semper felis, eu tristique neque. 
-        Suspendisse vehicula pulvinar sem eget imperdiet. Nam sollicitudin pretium neque, nec lacinia ipsum sodales vel. 
-        Nullam velit lorem, maximus a nunc id, porttitor scelerisque nisl. Vivamus consequat et turpis a posuere. 
-        Etiam consequat dignissim tortor non tincidunt. Nunc ac scelerisque libero. 
-        Morbi in urna a tortor laoreet tempus sit amet nec lacus. Sed facilisis rutrum sodales. 
-        Proin porttitor eget arcu quis luctus. Mauris in dolor semper, semper metus eu, efficitur urna. 
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce metus massa, pharetra nec turpis at, 
-        rhoncus faucibus lectus. Duis lobortis justo vitae leo dictum tincidunt.</p>
-       
-        <div class="videos">
-          <div class="video-div" video_src="Part_2/Chen/chen_1.mp4"></div>
-          <div class="video-div" video_src="Part_2/Chen/chen_2.mp4"></div>
-        </div>
+        As an extension to this part, we studied the damped wave equation
+        \[
+          \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} + \varepsilon \frac{\partial u}{\partial t} \, .
+        \]
+        Here, \( \varepsilon \) is a (small) parameter that indicates the damping of the wave solution.
+        
+        <br>
+        In the case of the damped with equation, the solution is not simply the sum of two function depending on \( x \pm t \). Instead, we depeloved a perturbation theory to find the wave solution in the limit of small damping \( \varepsilon \).
+        The wave solution is written as a series in \( \varepsilon \):
+        \[
+          u(x,t) = u_0(x,t) + \varepsilon u_1(x,t) + \varepsilon^2 u_2(x,t) + \dots \, .
+        \]
+        Here, \( u_0 \) is the wave solution in the undamped case and the other terms are correction terms. In the thesis, we determined the first correction term \( u_1 \).
 
+        <br>
+        The numerical schemes for the undamped wave equation can be generalised for the case in which there is damping. This is done by approximating the term \( \varepsilon \frac{\partial u}{\partial t} \) with the finite difference
+        \[
+          \frac{\partial u}{\partial t} = \frac{ u_{i,j+1} - u_{i,j-1} }{2\Delta t} + \mathcal{O}(\Delta t^2) \, .
+        \]
       </div>
     </details>
 
+    <h3>Videos</h3>
     <details>
-      <summary>Videos: Cobweb</summary>
+      <summary>Videos: Cobweb diagrams</summary>
       <div class="details">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel ornare turpis, sed volutpat nisl. 
-          Quisque finibus enim nisi, vel maximus eros vestibulum a. Integer id semper felis, eu tristique neque. 
-          Suspendisse vehicula pulvinar sem eget imperdiet. Nam sollicitudin pretium neque, nec lacinia ipsum sodales vel. 
-          Nullam velit lorem, maximus a nunc id, porttitor scelerisque nisl. Vivamus consequat et turpis a posuere. 
-          Etiam consequat dignissim tortor non tincidunt. Nunc ac scelerisque libero. 
-          Morbi in urna a tortor laoreet tempus sit amet nec lacus. Sed facilisis rutrum sodales. 
-          Proin porttitor eget arcu quis luctus. Mauris in dolor semper, semper metus eu, efficitur urna. 
-          Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce metus massa, pharetra nec turpis at, 
-          rhoncus faucibus lectus. Duis lobortis justo vitae leo dictum tincidunt.
+          The simulations here accompany the cobweb diagram, Fig. 2.11. 
+          For each value of \( \alpha \) used in the diagram, a video of the wave with initial condition a sine function is shown.
         </p>
         <div class="videos">
           <div class="video-div" video_src="Part_2/Cobweb/cobweb_alpha=0.5.mp4"></div>
@@ -443,12 +439,32 @@
         </div>
       </div>
     </details>
-
+    
     <details>
-      <summary>Videos: Undamped</summary>
+      <summary>Videos: Chen</summary>
       <div class="details">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel ornare turpis, sed volutpat nisl. 
+          These videos show the simulations discussed in Sec. 2.3.4. These simulations compared with the results of Chen [3]. The first video uses \( \alpha = \frac{1}{4} \), for which the mapping \( F \) is not chaotic. 
+          In the second video, where \( \alpha = 8 \), the mapping is chaotic however.
+        </p>
+       
+        <div class="videos">
+          <div class="video-div" video_src="Part_2/Chen/chen_1.mp4"></div>
+          <div class="video-div" video_src="Part_2/Chen/chen_2.mp4"></div>
+        </div>
+        
+      </div>
+    </details>
+
+    <details>
+      <summary>Videos: Undamped wave equation</summary>
+      <div class="details">
+        <p>
+          These six videos show a comparison of the 4 numerical schemes (shown as the first 4 entries of the legend) and the characteristics method (in green).
+          The first two videos illustrate the wave solution in the case of a fixed right boundary (left) and a freely moving right boundary (right), in the case \( \lambda = 1 \).
+          For these two cases, the mapping \( F \) is the identity function \( \text{Id} \) and the negative identity function \( -\text{Id} \) respectively.
+          The next two videos show the Van der Pol boundary condition in the case \( \lambda = 1 \), for two different values of \( \alpha \).
+          The last two videos show the same, but with \( \lambda < 1 \).
         </p>
         <div class="videos">
           <div class="video-div" video_src="Part_2/Undamped/F_fixed_boundary.mp4"></div>
@@ -462,10 +478,12 @@
     </details>
 
     <details>
-      <summary>Videos: Damped</summary>
+      <summary>Videos: Damped wave equation</summary>
       <div  class="details">
          <p>
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel ornare turpis, sed volutpat nisl. 
+           The first two videos here show a comparison of the first order perturbation theory and the best numerical scheme, the shifted scheme.
+           In the first video, a fixed right boundary was used, with \( F = \text{Id} \), while in the second video a Van der Pol boundary condition with \( \alpha = 8 \) was used.
+           The third video shows the numerical scheme in the case of large damping: the wave solution seems to slowly diverge to negative infinity in slow oscillations.
          </p>
         <div class="videos">
           <div class="video-div" video_src="Part_2/Damped/Fdamped_fixed_boundary.mp4"></div>
