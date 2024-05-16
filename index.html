@@ -272,10 +272,10 @@
         The grid spacing \( \Delta s = \frac{1}{N_x-1} \) does not depend on time anymore. Denote the values that \( u \) takes on the grid as \( u_{i,j} = u(i\Delta x, j\Delta t) \). The derivatives in the wave equation can be approximated as finite differences:
         \[
           \begin{cases}
-            \frac{\partial^2 u}{\partial\tau^2} = \frac{ u_{i,j+1} + u_{i,j-1} - 2u_{i,j} }{\Delta t^2} + O(\Delta t^2) \, ,\\
-            \frac{\partial^2 u}{\partial s^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta s^2} + O(\Delta s^2) \, , \\
-            \frac{\partial u}{\partial s} = \frac{ u_{i+1,j} - u_{i-1,j} }{2\Delta s} + O(\Delta s^2) \, ,\\
-            \frac{\partial^2 u}{\partial s\partial \tau} = \frac{ u_{i+1,j+1} - u_{i+1,j-1} - u_{i-1,j+1} + u_{i-1,j-1} }{4\Delta s\Delta t} + O(\Delta s^2 + \Delta t^2) \, .
+            \displaystyle\frac{\partial^2 u}{\partial\tau^2} = \frac{ u_{i,j+1} + u_{i,j-1} - 2u_{i,j} }{\Delta t^2} + O(\Delta t^2) \, ,\\
+            \displaystyle\frac{\partial^2 u}{\partial s^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta s^2} + O(\Delta s^2) \, , \\
+            \displaystyle\frac{\partial u}{\partial s} = \frac{ u_{i+1,j} - u_{i-1,j} }{2\Delta s} + O(\Delta s^2) \, ,\\
+            \displaystyle\frac{\partial^2 u}{\partial s\partial \tau} = \frac{ u_{i+1,j+1} - u_{i+1,j-1} - u_{i-1,j+1} + u_{i-1,j-1} }{4\Delta s\Delta t} + O(\Delta s^2 + \Delta t^2) \, .
           \end{cases}
         \]
         The wave equation then gives a relation between the points \( u_{i-1,j+1} \), \( u_{i,j+1} \), \( u_{i+1,j+1} \) on the one hand and \( u_{i-1,j} \), \( u_{i,j} \), \( u_{i+1,j} \), \( u_{i-1,j-1} \), \( u_{i,j-1} \), \( u_{i+1,j-1} \). 
@@ -374,8 +374,8 @@
         Similar to part 1, we discretise using a rectangular grid of \( N_x \) points in the spatial direction and \( N_t \) in the time direction. The wave equation \( \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \) can be translated to the grid by using the finite differences
         \[
           \begin{cases}
-            \frac{\partial^2 u}{\partial t^2} = \frac{ u_{i,j+1} + u_{i,j-1} - 2u_{i,j} }{\Delta t^2} + O(\Delta t^2) \, ,\\
-            \frac{\partial^2 u}{\partial x^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta x^2} + O(\Delta x^2) \, .
+            \displaystyle\frac{\partial^2 u}{\partial t^2} = \frac{ u_{i,j+1} + u_{i,j-1} - 2u_{i,j} }{\Delta t^2} + O(\Delta t^2) \, ,\\
+            \displaystyle\frac{\partial^2 u}{\partial x^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta x^2} + O(\Delta x^2) \, .
           \end{cases}
         \]
         This results in the relation 
