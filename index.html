@@ -313,7 +313,7 @@
       <summary>Videos: Numerical scheme</summary>
       <div class="details">
         <p>
-          The first video corresponds to Fig. 1.11 and why an approximation with central differences for the first time step is better than with forward differences.
+          The first video corresponds to Fig. 1.11 and illustrates why an approximation with central differences for the first time step is better than with forward differences.
           Further, the second video shows the numerical errors induced by approximating the wave equation using finite differences. 
           These numerical errors are high if sharp pulses occur in the wave, see Fig. 1.24. 
           The last four videos show that the numerical solution can diverge if \( \lambda = \frac{\Delta t}{\Delta x} > 1 \), 
@@ -415,16 +415,16 @@
             \displaystyle\frac{\partial^2 u}{\partial x^2} = \frac{ u_{i+1,j} + u_{i-1,j} - 2u_{i,j} }{\Delta x^2} + \mathcal{O}(\Delta x^2) \, .
           \end{cases}
         \]
-        This results in the relation 
+        This results in the relation (denote \( \lambda = \frac{\Delta t}{\Delta x} \) ):
         \[
-          u_{i,j+1} = \frac{\Delta t^2}{\Delta x^2} u_{i+1,j} + 2(1-\frac{\Delta t^2}{\Delta x^2}) u_{i,j} + \frac{\Delta t^2}{\Delta x^2} u_{i-1,j} - u_{i,j-1}
+          u_{i,j+1} = \lambda^2 u_{i+1,j} + 2(1-\lambda^2) u_{i,j} + \lambda^2 u_{i-1,j} - u_{i,j-1}
         \]
-        for \( 1 \leq i \leq N_x-1 \). The right boundary condition can be translated by approximating \( \nu(1+t) \) and \( \omega(1-t) \) as derivatives, 
+        for all \( 1 \leq i \leq N_x-1 \). The right boundary condition can be translated by approximating \( \nu(1+t) \) and \( \omega(1-t) \) as derivatives, 
         with finite differences. This can be done in multiple ways. A standard way is to express \( \nu(1+t) \) and \( \omega(1-t) \) as derivatives to \( x \) and \( t \),
         and use the relation \( \nu(1+t) = F(\omega(1-t)) \). We call this the default scheme. Other ways of using finite differences are possible 
         (we call these 'big scheme', 'left-of-boundary scheme' and 'shifted scheme'). Together with the left boundary condition \( u_{0,j} = 0 \), 
-        the values of the wave can be calculated for a full time layer, based on the two previous times. To start the recursive calculation,
-        the first two layers can be found using the initial position \( f \) and the initial velocity \( g \).
+        the values of the wave can be calculated for a full time layer at \( t = (j+1) \Delta t \), based on the two previous time layers at \( t = j\Delta t \) and \( t = (j-1) \Delta t \).
+        To start the recursive calculation, the first two layers can be found using the initial position \( f \) and the initial velocity \( g \).
       </div>
     </details>
     <details>
