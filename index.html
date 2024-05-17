@@ -437,7 +437,7 @@
         Here, \( \varepsilon \) is a (small) parameter that indicates the damping of the wave solution.
         
         <br>
-        In the case of the damped with equation, the solution is not simply the sum of two function depending on \( x \pm t \). 
+        In the case of the damped wave equation, the solution is not simply the sum of two functions depending on \( x \pm t \). 
         Instead, we depeloved a perturbation theory to find the wave solution in the limit of small damping \( \varepsilon \).
         The wave solution is written as a series in \( \varepsilon \):
         \[
@@ -450,7 +450,11 @@
         The numerical schemes for the undamped wave equation can be generalised for the case in which there is damping. 
         This is done by approximating the term \( \varepsilon \frac{\partial u}{\partial t} \) with the finite difference
         \[
-          \frac{\partial u}{\partial t} = \frac{ u_{i,j+1} - u_{i,j-1} }{2\Delta t} + \mathcal{O}(\Delta t^2) \, .
+          \frac{\partial u}{\partial t} = \frac{ u_{i,j+1} - u_{i,j-1} }{2\Delta t} + \mathcal{O}(\Delta t^2)
+        \]
+        to obtain the relation
+        \[
+          u_{i,j+1} = \frac{1}{1+\Delta t \frac{\varepsilon}{2}} \left[ \lambda^2 u_{i+1,j} + 2(1-\lambda^2) u_{i,j} + \lambda^2 u_{i-1,j} + (\Delta t \frac{\varepsilon}{2} - 1) u_{i,j-1} \right] \, .
         \]
       </div>
     </details>
