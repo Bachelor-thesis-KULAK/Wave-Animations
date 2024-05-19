@@ -58,6 +58,13 @@
       margin: 0;
       gap: 0.5rem;
     }
+    .videos_pres {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, .5fr));
+      padding: 0;
+      margin: 0;
+      gap: 0.5rem;
+    }
     .video-div {
       min-height: 6rem;
     }
@@ -574,6 +581,25 @@
         <button type="button" class="btn btn-link" onclick="toggle_presentation()"><img src="icon.svg" alt="Image" style="height:auto;width:40px"></button>
       </span>
     </h1>
+
+
+    <div class="videos_pres">
+      <div class="video-div" video_src="Part_1.mp4"></div> <!-- nog maken, L(t) exp als example -->
+      <div class="video-div" video_src="Part_1/interpol_initials_Lslow.mp4"></div>
+      <div class="video-div" video_src="Part_1/Simulations/linear_sin.mp4"></div>
+      <div class="video-div" video_src="Part_1/Simulations/exp_sin.mp4"></div>
+      <div class="video-div" video_src="Part_1/Simulations/exp_wavepacket.mp4"></div>
+      <div class="video-div" video_src="Part_1/Simulations/nonanalytical_sin.mp4"></div>
+      <div class="video-div" video_src="Part_1/Simulations/nonanalytical_gauss.mp4"></div>
+
+      <div class="video-div" video_src="Part_2/Chen/chen_1.mp4"></div> <!-- korter maken -->
+      <div class="video-div" video_src="Part_2/Chen/chen_2.mp4"></div> <!-- korter maken -->
+      <div class="video-div" video_src="Part_2/Undamped/F_vanderpol_boundary.mp4"></div>
+      <div class="video-div" video_src="Part_2/Undamped/Flambda_vanderpol_boundary.mp4"></div>
+      <div class="video-div" video_src="Part_2/Damped/Fdamped_fixed_boundary.mp4"></div>
+      <div class="video-div" video_src="Part_2/Damped/Fdamped_vanderpol_boundary.mp4"></div>
+      <div class="video-div" video_src="Part_2/Damped/Fultradamped_vanderpol_boundary.mp4"></div>
+    </div>
   </div>
 </body>
 </html>
