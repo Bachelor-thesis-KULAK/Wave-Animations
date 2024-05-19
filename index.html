@@ -90,6 +90,11 @@
     .citation-details {
       flex-grow: 1; /* Let the citation details occupy remaining space */
     }
+    button {
+      padding: 0;
+      border: none;
+      background: none;
+    }
   </style>
   <script>
     // Function to toggle the main divs that contain the base content or the presentation content
@@ -157,7 +162,7 @@
     <h1>
       Wave Animations
       <span style="float: right;">
-        <button type="button" class="btn btn-link" onclick="toggle_contentdivs()">
+        <button onclick="toggle_divcontent()">
           <img src="icon.svg" alt="Image">
         </button>
       </span>
@@ -567,7 +572,7 @@
     <h1>
       Wave Animations: presentation
       <span style="float: right;">
-        <button type="button" class="btn btn-link" onclick="toggle_contentdivs()">
+        <button onclick="toggle_divcontent()">
           <img src="icon.svg" alt="Image">
         </button>
       </span>
