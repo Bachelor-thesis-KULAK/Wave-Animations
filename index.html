@@ -85,6 +85,20 @@
     }
   </style>
   <script>
+  function toggle_presentation() {
+      var x = document.getElementById("1");
+      var y = document.getElementById("2");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+      if (y.style.display === "none") {
+        y.style.display = "block";
+      } else {
+        y.style.display = "none";
+      }
+    }
     // Wait for the document to be fully loaded
     document.addEventListener('DOMContentLoaded', function () {
       // Get all divs with class 'video-div'
@@ -139,10 +153,7 @@
   </script>
 </head>
 <body>
-  <select class="form-select" aria-label="Default select example">
-  <option value="1" selected>Default page</option>
-  <option value="2">Presentation page</option>
-  </select>
+  <button onclick="toggle_presentation()">Toggle presentation</button>
   <div id="1">
   <div class="container-xl px-3 my-5 markdown-body">
     <h1>
@@ -551,6 +562,9 @@
       <span class="citation-details">Chen, G., Hsu, S. B., Zhou, J., Chen, G., & Crosta, G. (1998). Chaotic vibrations of the one-dimensional wave equation due to a self-excitation boundary condition. Part I: Controlled hysteresis. <i>Transactions of the american mathematical society, 350</i>(11), 4265-4311.</span>
     </div>
   </div>
+  </div>
+  <div id="2" style="display:none">
+    <h1>testzfbzf</h1>
   </div>
 </body>
 </html>
