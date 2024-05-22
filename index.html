@@ -175,6 +175,10 @@
           seekStep: 1,    // seek forward/backward by 1 second
           enableModifiersForNumbers: false // disable number keys seeking
         });
+        // Set the volume to 10%
+        player.ready(function() {
+            player.volume(0.1);
+        });
         
       });
 
