@@ -105,6 +105,12 @@
       firstDiv.style.display = firstDiv.style.display == "none" ? "" : "none";
       secondDiv.style.display = secondDiv.style.display == "none" ? "" : "none";
     }
+    function isMobile() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Check for mobile user agents
+      return /android|iPad|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+    }
     // Wait for the document to be fully loaded
     document.addEventListener('DOMContentLoaded', function () {
       // Get all divs with class 'video-div'
@@ -135,10 +141,11 @@
         // playbackrates: the video can be watched at 10x slower, 4x slower, 2x slower and 2x faster (we can choose other rates as well)
         // inactivityTimeout: controlbar at the bottom disappears after 200 milliseconds (because it interferes with the video)
         // controlBar: I have removed the volumePanel and the pictureInPictureToggle
+        const timeOutMillisecond = isMobile() ? 1500 : 200;
         var player = videojs(videoElement, {
           fluid: true,
           playbackRates: [0.1, 0.25, 0.5, 1, 2, 10],
-          inactivityTimeout: 200,
+          inactivityTimeout: timeOutMillisecond,
           controlBar: {
             volumePanel: false,
             pictureInPictureToggle: false
