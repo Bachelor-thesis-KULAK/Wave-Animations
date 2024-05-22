@@ -40,6 +40,10 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <!-- Specify some styles -->
   <style>
+    .video-js,
+    .video-js .vjs-tech {
+      background-color: transparent; /* fix the black lines resulting from both the video-js div background as from the videos background */
+    }
     body {
       overflow-y: scroll;
     }
@@ -54,6 +58,11 @@
       margin: 0;
       gap: 0.5rem;
     }
+    @media (max-aspect-ratio: 1/1) {
+      .videos {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
     .videos_pres {
       display: grid;
       grid-template-columns: repeat(1, minmax(0, .6fr));
@@ -62,8 +71,13 @@
       margin: 0;
       gap: 0.5rem;
     }
+    @media (max-aspect-ratio: 1/1) {
+      .videos_pres {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
     .video-div {
-      min-height: 6rem;
+      min-height: 5rem;
     }
     summary {
       /*padding-left: 30px;*/
@@ -105,6 +119,12 @@
       firstDiv.style.display = firstDiv.style.display == "none" ? "" : "none";
       secondDiv.style.display = secondDiv.style.display == "none" ? "" : "none";
     }
+    function isMobile() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Check for mobile user agents
+      return /android|iPad|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+    }
     // Wait for the document to be fully loaded
     document.addEventListener('DOMContentLoaded', function () {
       // Get all divs with class 'video-div'
@@ -135,10 +155,11 @@
         // playbackrates: the video can be watched at 10x slower, 4x slower, 2x slower and 2x faster (we can choose other rates as well)
         // inactivityTimeout: controlbar at the bottom disappears after 200 milliseconds (because it interferes with the video)
         // controlBar: I have removed the volumePanel and the pictureInPictureToggle
+        const timeOutMillisecond = isMobile() ? 2000 : 200;
         var player = videojs(videoElement, {
           fluid: true,
           playbackRates: [0.1, 0.25, 0.5, 1, 2, 10],
-          inactivityTimeout: 200,
+          inactivityTimeout: timeOutMillisecond,
           controlBar: {
             volumePanel: false,
             pictureInPictureToggle: false
@@ -550,6 +571,7 @@
           <div class="video-div" video_src="Part_2/Damped/Fdamped_fixed_boundary.mp4"></div>
           <div class="video-div" video_src="Part_2/Damped/Fdamped_vanderpol_boundary.mp4"></div>
           <div class="video-div" video_src="Part_2/Damped/Fultradamped_vanderpol_boundary.mp4"></div>
+          <!--<div class="video-div" video_src="https://bit.ly/3BlS71b"></div>-->
         </div>
       </div>
     </details>
@@ -567,6 +589,12 @@
       <span class="citation-number">[3]</span>
       <span class="citation-details">Chen, G., Hsu, S. B., Zhou, J., Chen, G., & Crosta, G. (1998). Chaotic vibrations of the one-dimensional wave equation due to a self-excitation boundary condition. Part I: Controlled hysteresis. <i>Transactions of the american mathematical society, 350</i>(11), 4265-4311.</span>
     </div>
+    <!--
+    <div class="citation">
+      <span class="citation-number">[4]</span>
+      <span class="citation-details">Astley, R. (1987). Never Gonna Give You Up. <i>RCA Records</i>.</span>
+    </div>
+    -->  
   </div>
   
   <div id="2" style="display:none;" class="container-xl px-3 my-5 markdown-body">
