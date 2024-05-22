@@ -125,8 +125,7 @@
       // Check for mobile user agents
       return /android|iPad|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
     }
-    // Wait for the document to be fully loaded
-    document.addEventListener('DOMContentLoaded', function () {
+    function loadAllDivs() {
       // Get all divs with class 'video-div'
       var videoDivs = document.querySelectorAll('.video-div');
 
@@ -176,7 +175,9 @@
         
       });
 
-    }); // end of DOM
+    }
+    // Wait for the document to be fully loaded
+    document.addEventListener('DOMContentLoaded', loadAllDivs);
   </script>
 </head>
 <body>
