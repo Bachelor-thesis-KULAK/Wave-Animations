@@ -125,12 +125,15 @@
       // Check for mobile user agents
       return /android|iPad|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
     }
-    function loadAllDivs() {
+    function loadAllVids() {
       // Get all divs with class 'video-div'
       var videoDivs = document.querySelectorAll('.video-div');
 
+      // Select the divs that do not contain a 'video' tag
+      var videoDivsWithoutVideo = Array.from(videoDivs).filter(div => !div.querySelector('video'));
+
       // Loop over each video div
-      videoDivs.forEach(function (div) {
+      videoDivsWithoutVideo.forEach(function (div) {
         // Create a video element
         var videoElement = document.createElement('video');
         // Set the class to "video-js" (for better style)
@@ -177,7 +180,7 @@
 
     }
     // Wait for the document to be fully loaded
-    document.addEventListener('DOMContentLoaded', loadAllDivs);
+    document.addEventListener('DOMContentLoaded', loadAllVids);
   </script>
 </head>
 <body>
