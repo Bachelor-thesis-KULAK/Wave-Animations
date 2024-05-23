@@ -160,6 +160,7 @@
         const timeOutMillisecond = isMobile() ? 2000 : 200;
         var player = videojs(videoElement, {
           fluid: true,
+          muted: true, // Mute the video by default
           playbackRates: [0.1, 0.25, 0.5, 1, 2, 10],
           inactivityTimeout: timeOutMillisecond,
           controlBar: {
@@ -174,10 +175,6 @@
           enableVolumeScroll: false,
           seekStep: 1,    // seek forward/backward by 1 second
           enableModifiersForNumbers: false // disable number keys seeking
-        });
-        // Set the volume to 10%
-        player.ready(function() {
-            player.volume(0.1);
         });
         
       });
