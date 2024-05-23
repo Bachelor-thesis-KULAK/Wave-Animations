@@ -160,7 +160,6 @@
         const timeOutMillisecond = isMobile() ? 2000 : 200;
         var player = videojs(videoElement, {
           fluid: true,
-          muted: true, // Mute the video by default
           playbackRates: [0.1, 0.25, 0.5, 1, 2, 10],
           inactivityTimeout: timeOutMillisecond,
           controlBar: {
@@ -571,6 +570,7 @@
            The first two videos here show a comparison of the first order perturbation theory and the best numerical scheme, the shifted grid scheme.
            In the first video, a fixed right boundary was used, with \( F = \text{Id} \), while in the second video a Van der Pol boundary condition with \( \alpha = 8 \) was used.
            The third video shows the numerical scheme in the case of large damping: the wave solution seems to slowly diverge to negative infinity in slow oscillations.
+           The fourth video is [4].
          </p>
         <div class="videos">
           <div class="video-div" video_src="Part_2/Damped/Fdamped_fixed_boundary.mp4"></div>
